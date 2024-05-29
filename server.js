@@ -4,6 +4,7 @@ import cors from "cors";
 import * as dotenv from "dotenv";
 
 import novelRoute from "./routes/novel.route.js";
+import chapterRoute from "./routes/chapter.route.js";
 
 const app = express();
 dotenv.config();
@@ -29,6 +30,7 @@ app.use(
 app.use(express.json({ limit: "50mb" }));
 
 app.use("/api/v1/novels", novelRoute);
+app.use("/api/v1/chapters", chapterRoute);
 
 app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;
